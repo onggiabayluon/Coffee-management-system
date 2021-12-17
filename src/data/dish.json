@@ -1,0 +1,50 @@
+[
+  {
+    "isVegetarian": true,
+    "dishID": "Dish001",
+    "name": "Com suon",
+    "price": 25000.0,
+    "isActive": true,
+    "sellAt": "Day",
+    "dishType": {
+      "categoryID": "Cate001",
+      "categoryName": "Food"
+    }
+  },
+  {
+    "isVegetarian": false,
+    "dishID": "Dish002",
+    "name": "Com Thit Kho Hot Vit",
+    "price": 35000.0,
+    "isActive": true,
+    "sellAt": "Day",
+    "dishType": {
+      "categoryID": "Cate002",
+      "categoryName": "typeOfDrink"
+    }
+  },
+  {
+    "hasIce": false,
+    "dishID": "Dish003",
+    "name": "Yogurt",
+    "price": 10000.0,
+    "isActive": true,
+    "sellAt": "Night",
+    "dishType": {
+      "categoryID": "Cate002",
+      "categoryName": "typeOfDrink"
+    }
+  },
+  {
+    "hasIce": true,
+    "dishID": "Dish004",
+    "name": "GongCha",
+    "price": 10000.0,
+    "isActive": true,
+    "sellAt": "Night",
+    "dishType": {
+      "categoryID": "Cate002",
+      "categoryName": "typeOfDrink"
+    }
+  }
+]
