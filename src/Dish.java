@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class Dish {
 	private static final Scanner sc = new Scanner(System.in);
-	public static final boolean isVegetarian = true;
-	public static final boolean isNotVegetarian = false;
-	public static final boolean hasIce = true;
-	public static final boolean hasNoIce = false;
+	public static final boolean VEGETATIAN = true;
+	public static final boolean NONVEGETATIAN = false;
+	public static final boolean ICE = true;
+	public static final boolean NONICE = false;
 	private static int count;
 
 	private String dishID;

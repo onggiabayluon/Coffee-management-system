@@ -3,9 +3,9 @@ import java.util.List;
 
 
 public class DishManager {
-    Console console = new Console();
+    private List<Dish> dishes = new ArrayList<>();
     
-	private List<Dish> dishes = new ArrayList<>();
+    Console console = new Console();
 
     public void add(Dish dish) {
         this.dishes.add(dish);

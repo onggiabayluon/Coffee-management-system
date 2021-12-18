@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Supporter {
     public static final Scanner sc = new Scanner(System.in);
-    Validator validator = new Validator();
 
     public int inputInt() {
         int number = 0;

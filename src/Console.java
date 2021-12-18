@@ -17,6 +17,7 @@ public class Console {
         System.out.println("2 - Show Group Manager");
         System.out.println("3 - Show Dish Manager");
         System.out.println("4 - Show Table Manager");
+        System.out.println("5 - Show Order Manager");
         System.out.println("0 - Quit");
         System.out.print("Your Choice: ");
 
@@ -45,7 +46,6 @@ public class Console {
     }
 
     public int showDishManager() {
-        /***************************************************/
         System.out.print("+---------------+\n");
         System.out.print("|  Dish Manager |\n");
         System.out.print("+---------------+\n");
@@ -57,17 +57,43 @@ public class Console {
         System.out.println("0 - Back");
         System.out.print("Your Choice: ");
 
-        // selection = sc.nextInt();
-        // return selection;
-
         return supporter.inputInt();
     }
 
     public int showTableManager() {
-        System.out.println("showTableManager");
-        
+        System.out.print("+---------------+\n");
+        System.out.print("| Table Manager |\n");
+        System.out.print("+---------------+\n");
+
+        System.out.println("1 - Add");
+        System.out.println("2 - Remove");
+        System.out.println("3 - Find");
+        System.out.println("4 - List");
+        System.out.println("0 - Back");
+        System.out.print("Your Choice: ");
+
         return supporter.inputInt();
     }
+
+    public int showOrderManager() {
+        System.out.print("+---------------+\n");
+        System.out.print("| Order Manager |\n");
+        System.out.print("+---------------+\n");
+
+        System.out.println("1 - Add");
+        System.out.println("2 - Remove");
+        System.out.println("3 - Find");
+        System.out.println("4 - List");
+        System.out.println("0 - Back");
+        System.out.print("Your Choice: ");
+
+        return supporter.inputInt();
+    }
+
+
+    /**
+     * SUB MENU
+     */
 
     public int showDishOptions() {
         System.out.print("+----------------+\n");
@@ -97,6 +123,28 @@ public class Console {
 			"Category"
 		);
     }
+
+    public void printTableOfOrders() {
+        System.out.printf("%8s %15s\n",
+			"ID",
+			"Created At"
+		);
+    }
+
+    public void printTableOfTables() {
+        System.out.printf("%8s %15s %10s %12s\n",
+			"ID",
+			"Capacity",
+			"Status",
+			"Price"
+		);
+    }
+
+
+    /**
+     * SHOW DECORATION
+     */
+    
     public void printTopDecor() {
         System.out.print("\n--------------------------------------------------");
         System.out.print("--------------------------------------------------\n");

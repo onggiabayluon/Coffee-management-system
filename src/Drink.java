@@ -2,13 +2,13 @@ public class Drink extends Dish {
 	private boolean hasIce;
 	
 	public Drink() {
-		this.dishType = Category.drink;
+		this.dishType = Category.DRINK;
 	}
 	
 	public Drink(String name, double price, boolean isActive, String sellAt, boolean hasIce) {
 		super(name, price, isActive, sellAt);
 		
-		this.dishType = Category.drink;
+		this.dishType = Category.DRINK;
 		this.hasIce = hasIce;
 	}
 

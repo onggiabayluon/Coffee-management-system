@@ -1,19 +1,108 @@
-public class Table {
+import java.util.Scanner;
 
-	private String tableId;
-	
+public class Table {
+	public static final Scanner sc = new Scanner(System.in);
+	Console console = new Console();
+
 	private static int count;
+
+	private String tableID;
 
 	private int capacity;
 
-	private boolean isActive;
+	private boolean isOccupy;
 
-	private int Dish;
-
-	private Dish dish;
-
+	private double price;
 
 	{
-		tableId = String.format("B%03d", ++count);
+		tableID = String.format("B%03d", ++count);
+		isOccupy = false;
+	}
+
+	public void create() {
+		System.out.print("Capacity: ");
+		this.capacity = sc.nextInt();
+
+		System.out.print("Price: ");
+		this.price = sc.nextDouble();
+
+		System.out.print("Create successfully\n");
+	}
+
+	public void prettyPrint() {
+		console.printTopDecor();
+		console.printTableOfTables();
+		System.out.println(this);
+		console.printBotDecor();
+	}
+
+	/**
+	 * Constructor
+	 */
+	public Table() {
+	}
+
+	/**
+	 * Constructor
+	 */
+	public Table(int capacity, boolean isOccupy, double price) {
+		this.capacity = capacity;
+		this.isOccupy = isOccupy;
+		this.price = price;
+	}
+
+	/**
+	 * Constructor
+	 */
+	public Table(int capacity, double price) {
+		this.capacity = capacity;
+		this.price = price;
+	}
+
+	/**
+	 * toString
+	 */
+	@Override
+	public String toString() {
+		return String.format("%8s %15s %10s %12s",
+				this.tableID,
+				"Group Of " + this.capacity,
+				(this.isOccupy) ? "Booked" : "Empty",
+				this.price);
+	}
+
+	/**
+	 * GETTER SETTER
+	 */
+	public String getTableID() {
+		return tableID;
+	}
+
+	public void setTableID(String tableID) {
+		this.tableID = tableID;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public boolean isOccupy() {
+		return isOccupy;
+	}
+
+	public void setOccupy(boolean isOccupy) {
+		this.isOccupy = isOccupy;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 }

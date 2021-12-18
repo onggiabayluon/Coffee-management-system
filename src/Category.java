@@ -1,6 +1,6 @@
 public class Category {
-	public static final Category drink = new Category("Drink");
-	public static final Category food = new Category("Food");
+	public static final Category DRINK = new Category("Drink");
+	public static final Category FOOD = new Category("Food");
 
 	private String categoryID;
 
