@@ -163,6 +163,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [license-url]: https://github.com/onggiabayluon/Coffee-management-system/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: ![image](https://user-images.githubusercontent.com/70091587/146670514-3f9fbb1e-78c6-4412-bd9c-55ae49d4d032.png)
+[product-screenshot]: https://user-images.githubusercontent.com/70091587/146670514-3f9fbb1e-78c6-4412-bd9c-55ae49d4d032.png
 
 
