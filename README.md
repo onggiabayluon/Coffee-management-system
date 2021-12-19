@@ -95,14 +95,18 @@
 
 
 <!-- GETTING STARTED -->
+### Prerequisites
+If You're using vscode, you will need to install java extension: [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) 
+  
 ## Getting Started
 
 1. Right click App.java in vscode
-![image](https://user-images.githubusercontent.com/70091587/146670670-8e14bff5-dacc-4185-bb6d-7413e2ba9dea.png)
 
 2. Run the file
-![image](https://user-images.githubusercontent.com/70091587/146670694-85059cad-07ff-4c84-bb0f-0c8f38b89e8a.png)
 
+
+
+  
 ## Folder Structure
 
 The workspace contains two folders by default, where:
