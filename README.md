@@ -79,14 +79,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![image](https://user-images.githubusercontent.com/70091587/146670514-3f9fbb1e-78c6-4412-bd9c-55ae49d4d032.png)
-
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/70091587/146670738-3f230228-d17e-4680-85d7-2a62f8f4204a.png" height="250" />
-  <img src="https://user-images.githubusercontent.com/70091587/146670821-e8fb618e-d940-48b9-be87-46fdebe12118.png" height="250" /> 
-</p>
 
 
+[![Product Name Screen Shot][product-screenshot]]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -168,6 +163,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [license-url]: https://github.com/onggiabayluon/Coffee-management-system/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: ![image](https://user-images.githubusercontent.com/70091587/146670514-3f9fbb1e-78c6-4412-bd9c-55ae49d4d032.png)
 
 
