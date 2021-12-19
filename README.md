@@ -84,7 +84,11 @@
 
 ![image](https://user-images.githubusercontent.com/70091587/146670514-3f9fbb1e-78c6-4412-bd9c-55ae49d4d032.png)
 
-![image](https://user-images.githubusercontent.com/70091587/146670738-3f230228-d17e-4680-85d7-2a62f8f4204a.png)
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/70091587/146670738-3f230228-d17e-4680-85d7-2a62f8f4204a.png" width="100" />
+  <img src="https://user-images.githubusercontent.com/70091587/146670821-e8fb618e-d940-48b9-be87-46fdebe12118.png" width="100" /> 
+</p>
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -93,10 +97,8 @@
 
 ### Built With
 
-
 * [Java](https://java.com/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
