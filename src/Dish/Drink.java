@@ -1,3 +1,5 @@
+package Dish;
+
 public class Drink extends Dish {
 	private boolean hasIce;
 	

@@ -1,5 +1,8 @@
+package Order;
 import java.util.ArrayList;
 import java.util.List;
+
+import utils.Console;
 
 public class OrderManager {
 	private List<Order> orders = new ArrayList<>();
@@ -27,7 +30,7 @@ public class OrderManager {
 
 	public void list() {
         console.printTopDecor();
-        console.printTableOfOrders();
+        console.printColumnOfOrders();
 
         orders.forEach(order -> {
             System.out.println(order);

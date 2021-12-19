@@ -1,3 +1,5 @@
+package Dish;
+
 public class Food extends Dish {
 	private boolean isVegetarian;
 	

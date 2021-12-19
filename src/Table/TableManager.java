@@ -1,5 +1,8 @@
+package Table;
 import java.util.ArrayList;
 import java.util.List;
+
+import utils.Console;
 
 public class TableManager {
 	private List<Table> tables = new ArrayList<>();
@@ -27,7 +30,7 @@ public class TableManager {
 
 	public void list() {
         console.printTopDecor();
-        console.printTableOfTables();
+        console.printColumnOfTables();
 
         tables.forEach(order -> {
             System.out.println(order);

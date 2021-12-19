@@ -1,5 +1,9 @@
+package Dish;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import utils.Console;
 
 
 public class DishManager {
@@ -19,7 +23,7 @@ public class DishManager {
         Dish dish = dishes.stream().filter(d -> d.getDishID().toLowerCase().equals(id.toLowerCase())).findFirst().orElse(null);
         
         if (dish == null)
-            System.out.println("!! Not found any Dish in the kitchen");
+            System.out.printf("!! Not found any Dish in the kitchen");
         else
             dish.prettyPrint();
 
@@ -28,11 +32,9 @@ public class DishManager {
 
 	public void list() {
         console.printTopDecor();
-        console.printTableOfDishes();
+        console.printColumnOfDishes();
 
-        dishes.forEach(dish -> {
-            System.out.println(dish);
-        });
+        dishes.forEach(dish -> System.out.println(dish));
 
         console.printBotDecor();
     }

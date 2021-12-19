@@ -1,4 +1,7 @@
+package Table;
 import java.util.Scanner;
+
+import utils.Console;
 
 public class Table {
 	public static final Scanner sc = new Scanner(System.in);
@@ -31,7 +34,7 @@ public class Table {
 
 	public void prettyPrint() {
 		console.printTopDecor();
-		console.printTableOfTables();
+		console.printColumnOfTables();
 		System.out.println(this);
 		console.printBotDecor();
 	}

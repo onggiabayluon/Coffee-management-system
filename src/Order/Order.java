@@ -1,5 +1,8 @@
+package Order;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import utils.Console;
 
 public class Order {
 	Console console = new Console();
@@ -14,13 +17,13 @@ public class Order {
 	private Date orderDate;
 
 	{
-		orderID = String.format("Order%03d", ++count);
+		orderID = String.format("Or%03d", ++count);
 		orderDate = new Date();
 	}
 
 	public void prettyPrint() {
 		console.printTopDecor();
-		console.printTableOfDishes();
+		console.printColumnOfDishes();
 		System.out.println(this);
 		console.printBotDecor();
 	}

@@ -1,3 +1,4 @@
+package Dish;
 public class Category {
 	public static final Category DRINK = new Category("Drink");
 	public static final Category FOOD = new Category("Food");

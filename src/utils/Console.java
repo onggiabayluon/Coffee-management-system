@@ -1,3 +1,4 @@
+package utils;
 
 import java.util.Scanner;
 
@@ -18,6 +19,8 @@ public class Console {
         System.out.println("3 - Show Dish Manager");
         System.out.println("4 - Show Table Manager");
         System.out.println("5 - Show Order Manager");
+        System.out.println("6 - Show Dish Detail Manager");
+        System.out.println("7 - Show Table Detail Manager");
         System.out.println("0 - Quit");
         System.out.print("Your Choice: ");
 
@@ -88,8 +91,39 @@ public class Console {
         System.out.print("Your Choice: ");
 
         return supporter.inputInt();
+    
     }
+    public int showDishDetailManager() {
+        System.out.print("+---------------------+\n");
+        System.out.print("| Dish Detail Manager |\n");
+        System.out.print("+---------------------+\n");
 
+        // System.out.println("1 - Add");
+        System.out.println("2 - Remove");
+        System.out.println("3 - Find");
+        System.out.println("4 - List");
+        System.out.println("5 - Get Total Amount of 1 Order");
+        System.out.println("0 - Back");
+        System.out.print("Your Choice: ");
+
+        return supporter.inputInt();
+    }
+    
+    public int showTableDetailManager() {
+        System.out.print("+----------------------+\n");
+        System.out.print("| Table Detail Manager |\n");
+        System.out.print("+----------------------+\n");
+
+        // System.out.println("1 - Add");
+        System.out.println("2 - Remove");
+        System.out.println("3 - Find");
+        System.out.println("4 - List");
+        System.out.println("5 - Get Total Amount of 1 Order");
+        System.out.println("0 - Back");
+        System.out.print("Your Choice: ");
+
+        return supporter.inputInt();
+    }
 
     /**
      * SUB MENU
@@ -114,7 +148,13 @@ public class Console {
         return supporter.inputString();
     }
 
-    public void printTableOfDishes() {
+
+    
+    /**
+     * SHOW TABLE DECORATION
+     */
+
+    public void printColumnOfDishes() {
         System.out.printf("%8s %-25s %10s %12s %10s\n",
 			"ID",
 			"Name",
@@ -124,14 +164,14 @@ public class Console {
 		);
     }
 
-    public void printTableOfOrders() {
+    public void printColumnOfOrders() {
         System.out.printf("%8s %15s\n",
 			"ID",
 			"Created At"
 		);
     }
 
-    public void printTableOfTables() {
+    public void printColumnOfTables() {
         System.out.printf("%8s %15s %10s %12s\n",
 			"ID",
 			"Capacity",
@@ -139,10 +179,27 @@ public class Console {
 			"Price"
 		);
     }
+    
+    public void printColumnOfDishDetails() {
+        System.out.printf("%8s %8s %8s %12s\n",
+			"DishID",
+			"OrderID",
+			"Quantity",
+			"Price"
+		);
+    }
+    
+    public void printColumnOfTableDetails() {
+        System.out.printf("%8s %8s %12s \n",
+            "TableID",
+			"OrderID",
+			"Price"
+		);
+    }
 
 
     /**
-     * SHOW DECORATION
+     * SHOW LINE DECORATION
      */
     
     public void printTopDecor() {

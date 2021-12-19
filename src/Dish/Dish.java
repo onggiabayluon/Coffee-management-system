@@ -1,4 +1,7 @@
+package Dish;
 import java.util.Scanner;
+
+import utils.Console;
 
 public class Dish {
 	private static final Scanner sc = new Scanner(System.in);
@@ -25,12 +28,11 @@ public class Dish {
 	{
 		dishID = String.format("Dish%03d", ++count);
 	}
-	
 
 	public Dish() {
 
 	}
-	
+
 	public Dish(String name, double price, boolean isActive, String sellAt) {
 		this.name = name;
 		this.price = price;
@@ -40,26 +42,26 @@ public class Dish {
 
 	public void create() {
 		System.out.print("Name: ");
-        this.name = sc.nextLine();
+		this.name = sc.nextLine();
 
-        System.out.print("Price: ");
-        this.price = sc.nextDouble();
+		System.out.print("Price: ");
+		this.price = sc.nextDouble();
+
+		sc.nextLine();
+
+		System.out.print("Is Active (true/false): ");
+		this.isActive = sc.nextBoolean();
 
 		sc.nextLine();
 
-        System.out.print("Is Active (true/false): ");
-        this.isActive = sc.nextBoolean();
-
-		sc.nextLine();
-        
-        System.out.print("Time Of Sell (Breakfast/Lunch/Dinner): ");
-        this.sellAt = sc.nextLine();
+		System.out.print("Time Of Sell (Breakfast/Lunch/Dinner): ");
+		this.sellAt = sc.nextLine();
 		System.out.print("Create successfully\n");
 	}
 
 	public void prettyPrint() {
 		console.printTopDecor();
-		console.printTableOfDishes();
+		console.printColumnOfDishes();
 		System.out.println(this);
 		console.printBotDecor();
 	}
@@ -67,12 +69,12 @@ public class Dish {
 	@Override
 	public String toString() {
 		return String.format("%8s %-25s %10s %12s %10s",
-			this.dishID,
-            this.name,
-            this.price,
-            this.sellAt,
-			this.dishType.getCategoryName()
-        );
+				this.dishID,
+				this.name,
+				this.price,
+				this.sellAt,
+				this.dishType.getCategoryName()
+		);
 	}
 
 	/**
@@ -125,6 +127,5 @@ public class Dish {
 	public void setDishType(Category dishType) {
 		this.dishType = dishType;
 	}
-
 
 }
