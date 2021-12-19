@@ -95,8 +95,9 @@
 
 
 <!-- GETTING STARTED -->
-### Prerequisites
-If You're using vscode, you will need to install java extension: [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) 
+## Prerequisites
+If You're using vscode, you will need to install java extension: 
+[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) 
   
 ## Getting Started
 
