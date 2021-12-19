@@ -29,9 +29,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/onggiabayluon/Coffee-management-system">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
   <h3 align="center">Coffee-management-system</h3>
 
@@ -85,8 +82,8 @@
 ![image](https://user-images.githubusercontent.com/70091587/146670514-3f9fbb1e-78c6-4412-bd9c-55ae49d4d032.png)
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/70091587/146670738-3f230228-d17e-4680-85d7-2a62f8f4204a.png" width="100" />
-  <img src="https://user-images.githubusercontent.com/70091587/146670821-e8fb618e-d940-48b9-be87-46fdebe12118.png" width="100" /> 
+  <img src="https://user-images.githubusercontent.com/70091587/146670738-3f230228-d17e-4680-85d7-2a62f8f4204a.png" height="250" />
+  <img src="https://user-images.githubusercontent.com/70091587/146670821-e8fb618e-d940-48b9-be87-46fdebe12118.png" height="250" /> 
 </p>
 
 
