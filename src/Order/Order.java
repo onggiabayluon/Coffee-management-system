@@ -1,4 +1,5 @@
 package Order;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -7,9 +8,10 @@ import utils.Console;
 public class Order {
 	Console console = new Console();
 
-	// public static final SimpleDateFormat F = new SimpleDateFormat("dd/mm/yyyy HH:mm:ss");
-	public static final SimpleDateFormat F = new SimpleDateFormat("dd/mm/yyyy");
-	
+	// public static final SimpleDateFormat F = new SimpleDateFormat("dd/mm/yyyy
+	// HH:mm:ss");
+	public static final SimpleDateFormat F = new SimpleDateFormat("dd/MM/yyyy");
+
 	private static int count;
 
 	private String orderID;
@@ -28,13 +30,16 @@ public class Order {
 		console.printBotDecor();
 	}
 
-
 	/**
 	 * Constructor
 	 */
-	public Order() {}
-	
-	
+	public Order() {
+	}
+
+	public Order(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+
 	/**
 	 * toString
 	 */
@@ -43,11 +48,9 @@ public class Order {
 		// F.applyPattern("dd");
 		// F.applyPattern("mm");
 		return String.format("%8s %15s",
-			this.orderID,
-			F.format(this.orderDate)
-        );
+				this.orderID,
+				F.format(this.orderDate));
 	}
-
 
 	/**
 	 * GETTER SETTER
@@ -75,5 +78,5 @@ public class Order {
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-	
+
 }

@@ -1,6 +1,7 @@
 package Dish;
-import utils.Console;
 
+import Order.Order;
+import utils.Console;
 
 public class DishDetail {
     private String dishID;
@@ -12,32 +13,38 @@ public class DishDetail {
     private double price;
 
     Console console = new Console();
-    
 
     public DishDetail(String dishID, String orderID, int quantity, double price) {
         this.dishID = dishID;
         this.orderID = orderID;
         this.quantity = quantity;
-        this.price = price;
+        this.price
+         = price;
+    }
+    
+    public DishDetail(Dish dish, Order order ,int quantity) {
+        this.dishID = dish.getDishID();
+        this.orderID = order.getOrderID();
+        this.quantity = quantity;
+        this.price = dish.getPrice();
     }
 
     public void prettyPrint() {
-		console.printTopDecor();
-		console.printColumnOfDishes();
-		System.out.println(this);
-		console.printBotDecor();
-	}
+        console.printTopDecor();
+        console.printColumnOfDishes();
+        System.out.println(this);
+        console.printBotDecor();
+    }
 
     @Override
-	public String toString() {
-		return String.format("%8s %8s %8s %12s",
-				this.dishID,
-				this.orderID,
-				this.quantity,
-				this.price
-		);
-	}
-    
+    public String toString() {
+        return String.format("%8s %8s %8s %12s",
+                this.dishID,
+                this.orderID,
+                this.quantity,
+                this.price);
+    }
+
     public String getDishID() {
         return dishID;
     }
@@ -70,5 +77,4 @@ public class DishDetail {
         this.price = price;
     }
 
-    
 }

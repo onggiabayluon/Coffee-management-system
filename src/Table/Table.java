@@ -22,7 +22,7 @@ public class Table {
 		isOccupy = false;
 	}
 
-	public void create() {
+	public void input() {
 		System.out.print("Capacity: ");
 		this.capacity = sc.nextInt();
 

@@ -16,17 +16,17 @@ public class TableDetailManager {
 
     public void remove(String tableID, String orderID) {
         this.tableDetails.removeIf(dish -> (
-            dish.getTableID().equals(tableID) &&
-            dish.getOrderID().equals(orderID)
+            dish.getTableID().equalsIgnoreCase(tableID) &&
+            dish.getOrderID().equalsIgnoreCase(orderID)
         ));
     }
 
     public TableDetail find(String tableID, String orderID) {
         TableDetail tableDetail = tableDetails
         .stream()
-        .filter(d -> (
-            d.getTableID().toLowerCase().equals(tableID.toLowerCase()) && 
-            d.getOrderID().toLowerCase().equals(orderID.toLowerCase())
+        .filter(td -> (
+            td.getTableID().equalsIgnoreCase(tableID) && 
+            td.getOrderID().equalsIgnoreCase(orderID)
         ))
         .findFirst()
         .orElse(null);
@@ -49,14 +49,24 @@ public class TableDetailManager {
     }
 
 
-    public double totalAmount(String orderID) {
+    public double totalAmountByOrderIDs(List<String> orderIDs) {
+        // Convert ID List to lowercase
+        // orderIDs.stream().map(String::toLowerCase).collect(Collectors.toList());
 
+        // Calculate total amount by comparing to ID List
         double totalAmount = this.tableDetails
         .stream()
-        .filter(tableDetail -> tableDetail.getOrderID().toLowerCase().equals(orderID.toLowerCase()))
-        .mapToDouble(tableDetail -> tableDetail.getPrice())
+        .filter(tbd -> orderIDs.contains(tbd.getOrderID()))
+        .mapToDouble(tbd -> tbd.getPrice())
         .sum();
 
         return totalAmount;
+    }
+
+    public double totalAmount() {
+        return this.tableDetails
+        .stream()
+        .mapToDouble(tbd -> tbd.getPrice())
+        .sum();
     }
 }

@@ -1,24 +1,69 @@
 package utils;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import Dish.Dish;
+import Dish.DishDetail;
 import Dish.DishDetailManager;
 import Dish.DishManager;
 import Dish.Drink;
 import Dish.Food;
 import Order.Order;
 import Order.OrderManager;
+import Staff.Staff;
+import Staff.StaffManager;
 import Table.Table;
+import Table.TableDetail;
 import Table.TableDetailManager;
 import Table.TableManager;
 
 public class OptionMenu {
     public static final Scanner sc = new Scanner(System.in);
-    private String id, dishID, orderID, tableID;
+    private String id, dishID, orderID, tableID, action, name, gender, birthDate, address;
     private double totalAmount;
-    private int selection, dishChoice;
+    private int selection, dishChoice, quantity;
 
     Console console = new Console();
+    Supporter support = new Supporter();
+
+    public void manageStaff(StaffManager staffs) {
+
+        do {
+
+            selection = console.showStaffManager();
+
+            switch (selection) {
+                case 1:
+                    Staff staff = new Staff();
+                    staff.input();
+                    staffs.add(staff);
+                    break;
+                case 2:
+                    id = console.showIDInputScreen("Staff");
+                    staffs.remove(id);
+                    break;
+                case 3:
+                    id = console.showIDInputScreen("Dish");
+                    staffs.find(id);
+                    break;
+                case 4:
+                    staffs.list();
+                    break;
+                case 5:
+                    name = console.showInputName("Staff Name");
+                    staffs.findStaffsByName(name);
+                    break;
+                case 6:
+                    gender = console.showInputString("Staff gender(Male/Female/Other)");
+                    staffs.findStaffsByGender(gender);
+                    break;
+                default:
+                    break;
+            }
+
+        } while (selection != 0);
+    }
 
     public void manageDish(DishManager dishes) {
        
@@ -38,7 +83,7 @@ public class OptionMenu {
                     else 
                         break;
 
-                    dish.create();
+                    dish.input();
                     dishes.add(dish);
                     break;
                 case 2:
@@ -88,7 +133,7 @@ public class OptionMenu {
         } while (selection != 0);
     }
 
-    public void manageTable(TableManager tables) {
+    public void manageTable(TableManager tables, OrderManager orders, TableDetailManager tableDetails) {
        
         do {
 
@@ -97,7 +142,7 @@ public class OptionMenu {
             switch (selection) {
                 case 1:
                     Table table = new Table();
-                    table.create();
+                    table.input();
                     tables.add(table);
                     break;
                 case 2:
@@ -110,6 +155,19 @@ public class OptionMenu {
                     break;
                 case 4:
                     tables.list();
+                    break;
+                case 5:
+                    // 1. Input
+                    tableID = console.showIDInputScreen("Table");
+                    // 2 reserve Table
+                    table = tables.reserveTable(tableID);
+                    if (table == null) return;
+                    // 3.1 -> Create new Order
+                    Order order = new Order();
+                    orders.add(order);
+                    // 3.2  -> Create new TableDetail
+                    TableDetail tableDetail = new TableDetail(table, order);
+                    tableDetails.add(tableDetail);
                     break;
                 default:
                     break;
@@ -125,10 +183,6 @@ public class OptionMenu {
             selection = console.showDishDetailManager();
 
             switch (selection) {
-                // case 1:
-                //     DishDetail dd = new DishDetail();
-                //     dishDetails.add(dd);
-                //     break;
                 case 2:
                     dishID = console.showIDInputScreen("Dish");
                     orderID = console.showIDInputScreen("Order");
@@ -144,7 +198,7 @@ public class OptionMenu {
                     break;
                 case 5:
                     orderID = console.showIDInputScreen("Order");
-                    totalAmount = dishDetails.totalAmount(orderID);
+                    totalAmount = dishDetails.totalAmountByOrderIDs(Arrays.asList(orderID));
                     System.out.printf("\nTotal Amount of Order(%s): %.0f VND\n\n", orderID, totalAmount);
                     break;
                 default:
@@ -161,10 +215,6 @@ public class OptionMenu {
             selection = console.showTableDetailManager();
 
             switch (selection) {
-                // case 1:
-                //     Order order = new Order();
-                //     orders.add(order);
-                //     break;
                 case 2:
                     tableID = console.showIDInputScreen("Table");
                     orderID = console.showIDInputScreen("Order");
@@ -183,7 +233,7 @@ public class OptionMenu {
 
                 case 5:
                     orderID = console.showIDInputScreen("Order");
-                    totalAmount = tableDetails.totalAmount(orderID);
+                    totalAmount = tableDetails.totalAmountByOrderIDs(Arrays.asList(orderID));
                     System.out.printf("\nTotal Amount of Order(%s): %.0f VND\n\n", orderID, totalAmount);
                     break;
 
@@ -193,32 +243,81 @@ public class OptionMenu {
 
         } while (selection != 0);
     }
-    // public void manageOrder(OrderManager orders) {
-       
-    //     do {
+    
+    public void ReserveTableAndDish(TableManager tables, DishManager dishes ,OrderManager orders, TableDetailManager tableDetails, DishDetailManager dishdetails) {
+        // Show list of table and dish
+        tables.list();
+        dishes.list();
+        // Reserve Table
+        tableID = console.showIDInputScreen("Table");
+        Table table = tables.reserveTable(tableID);
+        if (table == null) return;
 
-    //         selection = console.showDishManager();
+        // Create new Order
+        Order order = new Order();
+        orders.add(order);
 
-    //         switch (selection) {
-    //             case 1:
-    //                 Order order = new Order();
-    //                 orders.add(order);
-    //                 break;
-    //             case 2:
-    //                 id = console.showIDInputScreen("Order");
-    //                 orders.remove(id);
-    //                 break;
-    //             case 3:
-    //                 id = console.showIDInputScreen("Order");
-    //                 orders.find(id);
-    //                 break;
-    //             case 4:
-    //                 orders.list();
-    //                 break;
-    //             default:
-    //                 break;
-    //         }
+        // Create new TableDetail
+        TableDetail tableDetail = new TableDetail(table, order);
+        tableDetails.add(tableDetail);
 
-    //     } while (selection != 0);
-    // }
+        // Order Multiple Dishes
+        do {
+            // Input
+            dishID = console.showIDInputScreen("Dish");
+            quantity = console.showInputInt("Quantity");
+
+            // Order Dish
+            Dish dish = dishes.orderDish(dishID);
+            if (dish == null) return;
+            
+            // 3.2  -> Create new DishDetail
+            DishDetail dishDetail = new DishDetail(dish, order, quantity);
+            dishdetails.add(dishDetail);
+            action = console.showDoWhileAction("Continue Order Dish (y/n)");
+
+        } while (action.equalsIgnoreCase("y") || action.equalsIgnoreCase("yes"));
+        
+    }
+
+    public void manageRevenue(OrderManager orders, TableDetailManager tableDetails, DishDetailManager dishDetails) {
+        do {
+
+            selection = console.showRevenueManager();
+
+            List<String> orderIDs;
+            String month, fromDate, toDate; 
+
+            switch (selection) {
+                case 1:
+                    double revenue = orders.getRevenue(dishDetails, tableDetails);
+                    System.out.printf("\n>> Total Revenue: %.0f VND\n\n", revenue);
+                    break;
+                case 2:
+                    orders.list();
+                    // Revenue by month -> filter orders by Month
+                    month = console.showInputString("Type Month");
+                    orderIDs = orders.filterByMonth(month);
+                    double revenueByMonth = orders.getRevenueByOrderIDs(dishDetails, tableDetails, orderIDs);
+                    
+                    System.out.printf("\n>> Month: %s", month);
+                    System.out.printf("\n>> Total Revenue: %.0f VND\n\n", revenueByMonth);
+                    break;
+                case 3:
+                    orders.list();
+                    // Revenue by Range of Date -> filter orders by Range of Date
+                    fromDate = console.showInputString("Type from Date (Ex: 1/01/2021)");
+                    toDate = console.showInputString("Type to Date (Ex: 25/12/2021)");
+                    orderIDs = orders.filterByDateRange(fromDate, toDate);
+                    double revenueByDateRange = orders.getRevenueByOrderIDs(dishDetails, tableDetails, orderIDs);
+                    
+                    System.out.printf("\n>> From %s -> To %s", fromDate, toDate);
+                    System.out.printf("\n>> Total Revenue: %.0f VND\n\n", revenueByDateRange);
+                    break;
+                default:
+                    break;
+            }
+
+        } while (selection != 0);
+    }
 }

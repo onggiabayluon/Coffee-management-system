@@ -16,8 +16,8 @@ public class DishDetailManager {
 
     public void remove(String dishID, String orderID) {
         this.dishDetails.removeIf(dish -> (
-            dish.getDishID().equals(dishID) &&
-            dish.getOrderID().equals(orderID)
+            dish.getDishID().equalsIgnoreCase(dishID) &&
+            dish.getOrderID().equalsIgnoreCase(orderID)
         ));
     }
 
@@ -25,8 +25,8 @@ public class DishDetailManager {
         DishDetail dishDetail = dishDetails
         .stream()
         .filter(d -> (
-            d.getDishID().toLowerCase().equals(dishID.toLowerCase()) && 
-            d.getOrderID().toLowerCase().equals(orderID.toLowerCase())
+            d.getDishID().equalsIgnoreCase(dishID) && 
+            d.getOrderID().equalsIgnoreCase(orderID)
         ))
         .findFirst()
         .orElse(null);
@@ -49,14 +49,24 @@ public class DishDetailManager {
     }
 
 
-    public double totalAmount(String orderID) {
+    public double totalAmountByOrderIDs(List<String> orderIDs) {
+        // Convert ID List to lowercase
+        // orderIDs.stream().map(String::toLowerCase).collect(Collectors.toList());
 
+        // Calculate total amount by comparing to ID List
         double totalAmount = this.dishDetails
         .stream()
-        .filter(dishDetail -> dishDetail.getOrderID().toLowerCase().equals(orderID.toLowerCase()))
-        .mapToDouble(dishDetail -> dishDetail.getPrice() * dishDetail.getQuantity())
+        .filter(dd -> orderIDs.contains(dd.getOrderID()))
+        .mapToDouble(dd -> dd.getPrice() * dd.getQuantity())
         .sum();
 
         return totalAmount;
+    }
+
+    public double totalAmount() {
+        return this.dishDetails
+        .stream()
+        .mapToDouble(dd -> dd.getPrice() * dd.getQuantity())
+        .sum();
     }
 }

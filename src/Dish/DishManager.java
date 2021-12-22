@@ -20,7 +20,7 @@ public class DishManager {
     }
 
     public Dish find(String id) {
-        Dish dish = dishes.stream().filter(d -> d.getDishID().toLowerCase().equals(id.toLowerCase())).findFirst().orElse(null);
+        Dish dish = dishes.stream().filter(d -> d.getDishID().equalsIgnoreCase(id)).findFirst().orElse(null);
         
         if (dish == null)
             System.out.printf("!! Not found any Dish in the kitchen");
@@ -37,5 +37,22 @@ public class DishManager {
         dishes.forEach(dish -> System.out.println(dish));
 
         console.printBotDecor();
+    }
+
+    public Dish orderDish(String dishID) {
+        Dish Dish = dishes.stream().filter(dish -> (
+            dish.getDishID().equalsIgnoreCase(dishID) &&
+            dish.isActive() == true
+        ))
+        .findFirst()
+        .orElse(null);
+
+        if (Dish == null) {
+            System.out.println("!! This Dish is Out of service, Please choose another Dish");
+            return null;
+        } else 
+            System.out.println(">> Reserve Dish successfully <<");
+            
+        return Dish;
     }
 }

@@ -1,41 +1,78 @@
 package Table;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import utils.Console;
 
 public class TableManager {
-	private List<Table> tables = new ArrayList<>();
+    private List<Table> tables = new ArrayList<>();
 
     Console console = new Console();
 
-	public void add(Table order) {
-        this.tables.add(order);
+    public void add(Table table) {
+        this.tables.add(table);
     }
 
     public void remove(String id) {
-        this.tables.removeIf(order -> order.getTableID().equals(id));
+        this.tables.removeIf(table -> table.getTableID().equalsIgnoreCase(id));
     }
 
-	public Table find(String id) {
-        Table order = tables.stream().filter(d -> d.getTableID().toLowerCase().equals(id.toLowerCase())).findFirst().orElse(null);
-        
-        if (order == null)
+    public Table find(String id) {
+        Table table = tables.stream().filter(d -> d.getTableID().equalsIgnoreCase(id)).findFirst().orElse(null);
+
+        if (table == null)
             System.out.println("!! Not found any Table in the kitchen");
         else
-            order.prettyPrint();
+            table.prettyPrint();
 
-        return order;
+        return table;
     }
 
-	public void list() {
+    public void list() {
         console.printTopDecor();
         console.printColumnOfTables();
 
-        tables.forEach(order -> {
-            System.out.println(order);
+        tables.forEach(table -> {
+            System.out.println(table);
         });
 
         console.printBotDecor();
+    }
+
+
+    public Table findEmptyTableByID(String id) {
+        Table table = tables.stream().filter(d -> (
+            d.getTableID().equalsIgnoreCase(id) &&
+            d.isOccupy() == false
+        ))
+        .findFirst()
+        .orElse(null);
+
+        if (table == null)
+            System.out.println("!! Not found any Table in the kitchen");
+        else
+            table.prettyPrint();
+
+        return table;
+    }
+
+    public Table reserveTable(String tableID) {
+        Table table = tables.stream().filter(tb -> (
+            tb.getTableID().equalsIgnoreCase(tableID) &&
+            tb.isOccupy() == false
+        ))
+        .findFirst()
+        .orElse(null);
+
+        if (table == null) {
+            System.out.println("!! Table is already booked, Please choose another table");
+            return null;
+        } else {
+            table.setOccupy(true);
+            System.out.println(">> Reserve Table successfully <<");
+        }
+            
+        return table;
     }
 }

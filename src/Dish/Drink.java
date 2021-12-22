@@ -3,6 +3,13 @@ package Dish;
 public class Drink extends Dish {
 	private boolean hasIce;
 	
+	private static int count;
+	
+	{
+		this.dishID = String.format("D%03d", ++count);
+	}
+
+	
 	public Drink() {
 		this.dishType = Category.DRINK;
 	}
@@ -12,6 +19,13 @@ public class Drink extends Dish {
 		
 		this.dishType = Category.DRINK;
 		this.hasIce = hasIce;
+	}
+
+	@Override
+	public void input() {
+		super.input();
+		System.out.print("Has Ice (true/false): ");
+		this.hasIce = sc.nextBoolean();
 	}
 
 	@Override

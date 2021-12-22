@@ -3,6 +3,13 @@ package Dish;
 public class Food extends Dish {
 	private boolean isVegetarian;
 	
+	private static int count;
+
+	{
+		this.dishID = String.format("F%03d", ++count);
+	}
+
+	
 	public Food() {
 		this.dishType = Category.FOOD;
 	}
@@ -14,6 +21,12 @@ public class Food extends Dish {
 		this.isVegetarian = isVegetarian;
 	}
 
+	@Override
+	public void input() {
+		super.input();
+		System.out.print("Is Vegetarian (true/false): ");
+		this.isVegetarian = sc.nextBoolean();
+	}
 
 	@Override
 	public String toString() {
@@ -22,7 +35,4 @@ public class Food extends Dish {
 			(this.isVegetarian) ? "Vegetarian" : "Meaty"
 		);
 	}
-
-	
-	
 }

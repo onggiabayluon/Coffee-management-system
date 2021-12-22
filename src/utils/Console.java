@@ -21,6 +21,11 @@ public class Console {
         System.out.println("5 - Show Order Manager");
         System.out.println("6 - Show Dish Detail Manager");
         System.out.println("7 - Show Table Detail Manager");
+        System.out.print("+-------------+\n");
+        System.out.print("|   Hot Key   |\n");
+        System.out.print("+-------------+\n");
+        System.out.println("8 - Reserve Table And Dishes");
+        System.out.println("9 - Revenue");
         System.out.println("0 - Quit");
         System.out.print("Your Choice: ");
 
@@ -28,18 +33,20 @@ public class Console {
     }
 
     public int showStaffManager() { 
+        System.out.print("+----------------+\n");
+        System.out.print("|  Staff Manager |\n");
+        System.out.print("+----------------+\n");
 
-        /***************************************************/
-
-        System.out.println("Choose from these choices");
-        System.out.println("-------------------------\n");
-        System.out.println("1 - Enter an original number");
-        System.out.println("2 - Encrypt a number");
-        System.out.println("3 - Decrypt a number");
-        System.out.println("5 - Back");
+        System.out.println("1 - Add");
+        System.out.println("2 - Remove");
+        System.out.println("3 - Find");
+        System.out.println("4 - List");
+        System.out.println("5 - Find by Name");
+        System.out.println("6 - Find by gender");
+        System.out.println("0 - Back");
         System.out.print("Your Choice: ");
 
-        return supporter.inputInt();    
+        return supporter.inputInt();
     }
 
     public int showGroupManager() {
@@ -72,6 +79,7 @@ public class Console {
         System.out.println("2 - Remove");
         System.out.println("3 - Find");
         System.out.println("4 - List");
+        System.out.println("5 - Reserve Table");
         System.out.println("0 - Back");
         System.out.print("Your Choice: ");
 
@@ -125,6 +133,20 @@ public class Console {
         return supporter.inputInt();
     }
 
+    public int showRevenueManager() {
+        System.out.print("+-----------------+\n");
+        System.out.print("| Revenue Manager |\n");
+        System.out.print("+-----------------+\n");
+
+        System.out.println("1 - Total Revenue");
+        System.out.println("2 - Revenue by month");
+        System.out.println("3 - Revenue by range of date");
+        System.out.println("0 - Back");
+        System.out.print("Your Choice: ");
+
+        return supporter.inputInt();
+    }
+
     /**
      * SUB MENU
      */
@@ -147,8 +169,30 @@ public class Console {
 
         return supporter.inputString();
     }
+    
+    public String showInputString(String name) {
+        System.out.printf("%s: ", name);
 
+        return supporter.inputString();
+    }
 
+    public int showInputInt(String name) {
+        System.out.printf("%s: ", name);
+
+        return supporter.inputInt();
+    }
+
+    public String showDoWhileAction(String name) {
+        System.out.printf("%s: ", name);
+
+        return supporter.inputString();
+    }
+
+    public String showInputName(String name) {
+        System.out.printf("%s: ", name);
+
+        return supporter.inputName();
+    }
     
     /**
      * SHOW TABLE DECORATION
@@ -194,6 +238,18 @@ public class Console {
             "TableID",
 			"OrderID",
 			"Price"
+		);
+    }
+
+    public void printColumnOfStaffs() {
+        System.out.printf("%8s %-25s %20s %12s %10s %12s %12s \n",
+            "StaffID",
+			"StaffName",
+			"Address",
+			"Gender",
+			"BirthDate",
+			"StartDate",
+			"Group"
 		);
     }
 

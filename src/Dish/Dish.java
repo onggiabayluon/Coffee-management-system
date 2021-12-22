@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 import utils.Console;
 
-public class Dish {
-	private static final Scanner sc = new Scanner(System.in);
+public abstract class Dish {
+	protected static final Scanner sc = new Scanner(System.in);
 	public static final boolean VEGETATIAN = true;
 	public static final boolean NONVEGETATIAN = false;
 	public static final boolean ICE = true;
 	public static final boolean NONICE = false;
-	private static int count;
+	
 
-	private String dishID;
+	protected String dishID;
 
 	private String name;
 
@@ -25,9 +25,7 @@ public class Dish {
 
 	Console console = new Console();
 
-	{
-		dishID = String.format("Dish%03d", ++count);
-	}
+	
 
 	public Dish() {
 
@@ -40,7 +38,7 @@ public class Dish {
 		this.sellAt = sellAt;
 	}
 
-	public void create() {
+	public void input() {
 		System.out.print("Name: ");
 		this.name = sc.nextLine();
 
