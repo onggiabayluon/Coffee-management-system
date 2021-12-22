@@ -22,7 +22,7 @@ public class OptionMenu {
     public static final Scanner sc = new Scanner(System.in);
     private String id, dishID, orderID, tableID, action, name, gender, birthDate, address;
     private double totalAmount;
-    private int selection, dishChoice, quantity;
+    private int selection, dishChoice, quantity, capacity;
 
     Console console = new Console();
     Supporter support = new Supporter();
@@ -45,7 +45,7 @@ public class OptionMenu {
                     break;
                 case 3:
                     id = console.showIDInputScreen("Dish");
-                    staffs.find(id);
+                    staffs.findStaffByID(id);
                     break;
                 case 4:
                     staffs.list();
@@ -57,6 +57,19 @@ public class OptionMenu {
                 case 6:
                     gender = console.showInputString("Staff gender(Male/Female/Other)");
                     staffs.findStaffsByGender(gender);
+                    break;
+                case 7:
+                    address = console.showInputString("Type Address");
+                    staffs.findStaffsByAddress(address);
+                    break;
+                case 8:
+                    birthDate = console.showInputString("Type BirthDate");
+                    staffs.findStaffsByBirthDate(birthDate);
+                    break;
+                case 9:
+                    id = console.showInputString(">> Type ID");
+                    staffs.update(id);
+                    System.out.println("Update successfully");
                     break;
                 default:
                     break;
@@ -96,6 +109,19 @@ public class OptionMenu {
                     break;
                 case 4:
                     dishes.list();
+                    break;
+                case 5:
+                    String name = console.showInputName("Type Dish name");
+                    dishes.findByName(name);
+                    break;
+                case 6:
+                    Double fromPrice = console.showInputDouble("From price");
+                    Double toPrice = console.showInputDouble("To price");
+                    dishes.findByRangeOfPrice(fromPrice, toPrice);
+                    break;
+                case 7:
+                    int sortKey = console.showInputInt(">> Type Sort (1/-1) for Ascending or Descending");
+                    dishes.sortByPrice(sortKey);
                     break;
                 default:
                     break;
@@ -157,6 +183,13 @@ public class OptionMenu {
                     tables.list();
                     break;
                 case 5:
+                    tables.listEmptyTable();
+                    break;
+                case 6:
+                    capacity = console.showInputInt("Capacity");
+                    tables.findByCapacity(capacity);
+                    break;
+                case 7:
                     // 1. Input
                     tableID = console.showIDInputScreen("Table");
                     // 2 reserve Table
@@ -319,5 +352,11 @@ public class OptionMenu {
             }
 
         } while (selection != 0);
+    }
+
+    public void celerateStaffsBirthDateInMonth(StaffManager staffs) {
+        staffs.list();
+        String month = console.showInputString("Type Month");
+        staffs.CelebrateStaffsBirthDateInMonth(month);
     }
 }

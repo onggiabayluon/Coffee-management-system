@@ -4,9 +4,7 @@ public class SecurityGroup extends Group {
 
     {
         this.groupID = String.format("SG%03d", ++count);
+        this.groupName = "Security";
     }
 
-    public SecurityGroup(String groupName) {
-        super(groupName);
-    }
 }

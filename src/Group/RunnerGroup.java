@@ -4,9 +4,7 @@ public class RunnerGroup extends Group {
     
     {
         this.groupID = String.format("RG%03d", ++count);
+        this.groupName = "Runner";
     }
 
-    public RunnerGroup(String groupName) {
-        super(groupName);
-    }
 }

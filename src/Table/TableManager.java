@@ -2,6 +2,7 @@ package Table;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import utils.Console;
 
@@ -38,6 +39,22 @@ public class TableManager {
         });
 
         console.printBotDecor();
+    }
+
+    public void listEmptyTable() {
+        List<Table> listOfTable = tables.stream().filter(d -> !d.isOccupy()).collect(Collectors.toList());
+        listOfTable.forEach(table -> table.prettyPrint());
+    }
+
+    public Table findByCapacity(int capacity) {
+        Table table = tables.stream().filter(d -> d.getCapacity() == capacity).findFirst().orElse(null);
+
+        if (table == null)
+            System.out.println("!! Not found any Table in the kitchen");
+        else
+            table.prettyPrint();
+
+        return table;
     }
 
 

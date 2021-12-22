@@ -71,20 +71,20 @@ public class App {
         -----------------------------------------
         */
 
-        Group cook = new CookGroup("Cook");
-        Group runner = new RunnerGroup("Cook");
-        Group security = new SecurityGroup("Cook");
-        Staff staff1 = new Staff("Luong Dc Huy", Gender.MALE, "TMT", "14/01/2001", "23/12/2021", cook);
-        Staff staff2 = new Staff("Nguyen Ha Truong", Gender.MALE, "TMT", "14/01/2001", "23/12/2021", runner);
-        Staff staff3 = new Staff("Dang Ng Dang Khoa", Gender.MALE, "TMT", "14/01/2001", "23/12/2021", runner);
-        Staff staff4 = new Staff("Nguyen Dung Hoa", Gender.MALE, "TMT", "14/01/2001", "23/12/2021", security);
+        Group cook = new CookGroup();
+        Group runner = new RunnerGroup();
+        Group security = new SecurityGroup();
+        Staff staff1 = new Staff("Luong Duc Huy", Gender.MALE, "TMT", "14/01/2001", "23/12/2021", cook);
+        Staff staff2 = new Staff("Nguyen Ha Truong", Gender.MALE, "ACX", "14/02/2001", "23/12/2021", runner);
+        Staff staff3 = new Staff("Dang Ng Dang Khoa", Gender.FEMALE, "HMH", "23/02/2001", "23/12/2021", runner);
+        Staff staff4 = new Staff("Nguyen Dung Hoa", Gender.OTHER, "TMT", "14/01/2001", "23/12/2021", security);
         /*
         ----------------------------------------------------------------------------------------------------
         StaffID StaffName                            Address       Gender  BirthDate    StartDate        Group 
         S001 Luong Dc Huy                               TMT         MALE 14/01/2001   23/12/2021         Cook
-        S002 Nguyen Ha Truong                           TMT         MALE 14/01/2001   23/12/2021         Cook
-        S003 Dang Ng Dang Khoa                          TMT         MALE 14/01/2001   23/12/2021         Cook
-        S004 Nguyen Dung Hoa                            TMT         MALE 14/01/2001   23/12/2021         Cook
+        S002 Nguyen Ha Truong                           TMT         MALE 14/01/2001   23/12/2021         Runner
+        S003 Dang Ng Dang Khoa                          TMT         MALE 14/01/2001   23/12/2021         Runner
+        S004 Nguyen Dung Hoa                            TMT         MALE 14/01/2001   23/12/2021         Security
         ----------------------------------------------------------------------------------------------------
         */
 
@@ -174,6 +174,8 @@ public class App {
                     break;
                 case 9:
                     optionMenu.manageRevenue(orders, tableDetails, dishDetails);
+                case 10:
+                    optionMenu.celerateStaffsBirthDateInMonth(staffs);
                     break;
                 default:
                     break;

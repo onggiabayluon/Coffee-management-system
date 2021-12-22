@@ -5,10 +5,7 @@ public abstract class Group {
 
 	protected String groupName;
 
-
-	public Group() {
-
-	}
+	public Group() {}
 
 	public Group(String groupName) {
 		this.groupName = groupName;
@@ -33,7 +30,4 @@ public abstract class Group {
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
-
-	
-
 }

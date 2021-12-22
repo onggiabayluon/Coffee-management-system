@@ -61,6 +61,8 @@ public class Staff {
 		System.out.print("Address: ");
 		this.address = sc.nextLine();
 
+		sc.nextLine();
+
 		// To be continued
 
 		System.out.print("Create successfully\n");

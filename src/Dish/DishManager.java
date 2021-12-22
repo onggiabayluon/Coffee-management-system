@@ -2,13 +2,13 @@ package Dish;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import utils.Console;
 
-
 public class DishManager {
     private List<Dish> dishes = new ArrayList<>();
-    
+
     Console console = new Console();
 
     public void add(Dish dish) {
@@ -21,16 +21,16 @@ public class DishManager {
 
     public Dish find(String id) {
         Dish dish = dishes.stream().filter(d -> d.getDishID().equalsIgnoreCase(id)).findFirst().orElse(null);
-        
+
         if (dish == null)
-            System.out.printf("!! Not found any Dish in the kitchen");
+            System.out.printf("!! Not found any Dish in the kitchen\n");
         else
             dish.prettyPrint();
 
         return dish;
     }
 
-	public void list() {
+    public void list() {
         console.printTopDecor();
         console.printColumnOfDishes();
 
@@ -40,19 +40,51 @@ public class DishManager {
     }
 
     public Dish orderDish(String dishID) {
-        Dish Dish = dishes.stream().filter(dish -> (
-            dish.getDishID().equalsIgnoreCase(dishID) &&
-            dish.isActive() == true
-        ))
-        .findFirst()
-        .orElse(null);
+        Dish Dish = dishes.stream()
+                .filter(dish -> (dish.getDishID().equalsIgnoreCase(dishID) &&
+                        dish.isActive() == true))
+                .findFirst()
+                .orElse(null);
 
         if (Dish == null) {
             System.out.println("!! This Dish is Out of service, Please choose another Dish");
             return null;
-        } else 
+        } else
             System.out.println(">> Reserve Dish successfully <<");
-            
+
         return Dish;
+    }
+
+    public Dish findByName(String name) {
+        Dish dish = dishes.stream().filter(d -> d.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+
+        if (dish == null)
+            System.out.printf("!! Not found any Dish in the kitchen\n");
+        else
+            dish.prettyPrint();
+
+        return dish;
+    }
+
+    public List<Dish> findByRangeOfPrice(Double fromPrice, Double toPrice) {
+        List<Dish> listOfDish = dishes.stream()
+                .filter(d -> {
+                    Double dishPrice = d.getPrice();
+                    return dishPrice >= fromPrice && dishPrice <= toPrice;
+                })
+                .collect(Collectors.toList());
+
+        if (listOfDish.isEmpty())
+            System.out.printf("!! Not found any Dish in the kitchen\n");
+        else
+            listOfDish.forEach(dish -> dish.prettyPrint());
+
+        return listOfDish;
+    }
+
+    public void sortByPrice(int sortKey) {
+        this.dishes.sort((d1, d2) -> sortKey * Double.compare(d1.getPrice(), d2.getPrice()));
+        System.out.printf(">> Sort Result <<");
+        this.list();
     }
 }

@@ -26,6 +26,7 @@ public class Console {
         System.out.print("+-------------+\n");
         System.out.println("8 - Reserve Table And Dishes");
         System.out.println("9 - Revenue");
+        System.out.println("10 - Celebrate Staffs Birthdate together in month");
         System.out.println("0 - Quit");
         System.out.print("Your Choice: ");
 
@@ -43,6 +44,9 @@ public class Console {
         System.out.println("4 - List");
         System.out.println("5 - Find by Name");
         System.out.println("6 - Find by gender");
+        System.out.println("7 - Find by address");
+        System.out.println("8 - Find by birthday");
+        System.out.println("9 - Update");
         System.out.println("0 - Back");
         System.out.print("Your Choice: ");
 
@@ -64,6 +68,9 @@ public class Console {
         System.out.println("2 - Remove");
         System.out.println("3 - Find");
         System.out.println("4 - List");
+        System.out.println("5 - Find By Name");
+        System.out.println("6 - Find By Range Of Price");
+        System.out.println("7 - Sort By Price");
         System.out.println("0 - Back");
         System.out.print("Your Choice: ");
 
@@ -79,7 +86,9 @@ public class Console {
         System.out.println("2 - Remove");
         System.out.println("3 - Find");
         System.out.println("4 - List");
-        System.out.println("5 - Reserve Table");
+        System.out.println("5 - List Empty Table");
+        System.out.println("6 - Find Table by capacity");
+        System.out.println("7 - Reserve Table");
         System.out.println("0 - Back");
         System.out.print("Your Choice: ");
 
@@ -174,6 +183,12 @@ public class Console {
         System.out.printf("%s: ", name);
 
         return supporter.inputString();
+    }
+    
+    public Double showInputDouble(String name) {
+        System.out.printf("%s: ", name);
+
+        return supporter.inputDouble();
     }
 
     public int showInputInt(String name) {

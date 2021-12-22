@@ -4,9 +4,7 @@ public class CookGroup extends Group {
 
     {
         this.groupID = String.format("CG%03d", ++count);
+        this.groupName = "Cook";
     }
     
-    public CookGroup(String groupName) {
-        super(groupName);
-    }
 }

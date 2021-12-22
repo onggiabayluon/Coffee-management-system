@@ -27,10 +27,22 @@ public class Supporter {
             str = sc.next();
         } catch (InputMismatchException exception) {
             System.out.println("String only, Type again: ");
-            sc.next();
+            // sc.next();
+        }
+        
+        return str;
+    }
+
+    public Double inputDouble() {
+        Double db = 0.0;
+        try {
+            db = sc.nextDouble();
+        } catch (InputMismatchException exception) {
+            System.out.println("String only, Type again: ");
+            // sc.next();
         }
 
-        return str;
+        return db;
     }
 
     public String inputName() {
