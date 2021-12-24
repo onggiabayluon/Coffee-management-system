@@ -174,8 +174,12 @@ public class App {
                     break;
                 case 9:
                     optionMenu.manageRevenue(orders, tableDetails, dishDetails);
+                    break;
                 case 10:
                     optionMenu.celerateStaffsBirthDateInMonth(staffs);
+                    break;
+                case 11:
+                    optionMenu.checkoutTable(tables, orders, tableDetails, dishDetails);
                     break;
                 default:
                     break;

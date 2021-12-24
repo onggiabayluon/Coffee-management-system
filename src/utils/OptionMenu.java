@@ -356,7 +356,19 @@ public class OptionMenu {
 
     public void celerateStaffsBirthDateInMonth(StaffManager staffs) {
         staffs.list();
-        String month = console.showInputString("Type Month");
+        String month = console.showInputString(">> Type Month");
         staffs.CelebrateStaffsBirthDateInMonth(month);
+    }
+    
+    public void checkoutTable(TableManager tables, OrderManager orders, TableDetailManager tableDetails, DishDetailManager dishDetails) {
+        orders.list();
+        dishDetails.list();
+        tableDetails.list();
+        String orderID = console.showInputString(">> Type OrderID");
+
+        double dishAmount = dishDetails.totalAmountByOrderIDs(Arrays.asList(orderID));
+        double tableAmount = tableDetails.totalAmountByOrderIDs(Arrays.asList(orderID));
+
+        System.out.printf("\nTotal Amount of Order(%s): %.0f VND\n\n", orderID, dishAmount + tableAmount);
     }
 }

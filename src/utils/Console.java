@@ -27,6 +27,7 @@ public class Console {
         System.out.println("8 - Reserve Table And Dishes");
         System.out.println("9 - Revenue");
         System.out.println("10 - Celebrate Staffs Birthdate together in month");
+        System.out.println("11 - Checkout table");
         System.out.println("0 - Quit");
         System.out.print("Your Choice: ");
 
