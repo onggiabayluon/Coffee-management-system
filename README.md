@@ -83,7 +83,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://user-images.githubusercontent.com/70091587/146670514-3f9fbb1e-78c6-4412-bd9c-55ae49d4d032.png)
 
-![Class diagram](https://user-images.githubusercontent.com/70091587/147404794-2efe2b84-334d-480a-9b9e-b214e3b9db8f.png)
+![Class diagram](https://user-images.githubusercontent.com/70091587/147404821-02dcb5cc-8f97-406c-bab1-593e9a9c043f.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
