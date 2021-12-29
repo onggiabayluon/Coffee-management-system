@@ -99,7 +99,7 @@
 <!-- GETTING STARTED -->
 ## Prerequisites
 If You're using vscode, you will need to install java extension: 
-[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) 
+[Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) 
   
 ## Getting Started
 
