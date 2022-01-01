@@ -37,6 +37,7 @@ public class App {
         Dish d3 = new Drink("Yogurt", 10000, true, "Dinner", Dish.NONICE);
         Dish d4 = new Drink("GongCha", 10000, true, "Dinner", Dish.ICE);
 
+
         /*
         ----------------------------------------------
         ID        Capacity     Status        Price
@@ -49,6 +50,7 @@ public class App {
         Table tb2 = new Table(5, 200000); // empty Table
         Table tb3 = new Table(5, true, 200000); // Table is booked
 
+
         /*
         ------------------------
         ID      Created At
@@ -60,6 +62,25 @@ public class App {
         Order o1 = new Order();
         Order o2 = new Order();
         Order o3 = new Order(support.getDate("11/1/2021"));
+        
+
+        /*
+        ----------------------------------------------------------------------------------------------------
+        StaffID StaffName                            Address       Gender  BirthDate    StartDate        Group 
+        S001 Luong Dc Huy                               TMT         MALE 14/01/2001   23/12/2021         Cook
+        S002 Nguyen Ha Truong                           TMT         MALE 14/01/2001   23/12/2021         Runner
+        S003 Dang Ng Dang Khoa                          TMT         MALE 14/01/2001   23/12/2021         Runner
+        S004 Nguyen Dung Hoa                            TMT         MALE 14/01/2001   23/12/2021         Security
+        ----------------------------------------------------------------------------------------------------
+        */
+        Group cook = new CookGroup();
+        Group runner = new RunnerGroup();
+        Group security = new SecurityGroup();
+        Staff staff1 = new Staff("Luong Duc Huy", Gender.MALE, "TMT", "14/01/2001", "23/12/2021", cook);
+        Staff staff2 = new Staff("Nguyen Ha Truong", Gender.MALE, "ACX", "14/02/2001", "23/12/2021", runner);
+        Staff staff3 = new Staff("Dang Ng Dang Khoa", Gender.FEMALE, "HMH", "23/02/2001", "23/12/2021", runner);
+        Staff staff4 = new Staff("Nguyen Dung Hoa", Gender.OTHER, "TMT", "14/01/2001", "23/12/2021", security);
+        
 
         /*
         -----------------------------------------
@@ -70,29 +91,12 @@ public class App {
         Dish004    Or003       20      10000.0
         -----------------------------------------
         */
-
-        Group cook = new CookGroup();
-        Group runner = new RunnerGroup();
-        Group security = new SecurityGroup();
-        Staff staff1 = new Staff("Luong Duc Huy", Gender.MALE, "TMT", "14/01/2001", "23/12/2021", cook);
-        Staff staff2 = new Staff("Nguyen Ha Truong", Gender.MALE, "ACX", "14/02/2001", "23/12/2021", runner);
-        Staff staff3 = new Staff("Dang Ng Dang Khoa", Gender.FEMALE, "HMH", "23/02/2001", "23/12/2021", runner);
-        Staff staff4 = new Staff("Nguyen Dung Hoa", Gender.OTHER, "TMT", "14/01/2001", "23/12/2021", security);
-        /*
-        ----------------------------------------------------------------------------------------------------
-        StaffID StaffName                            Address       Gender  BirthDate    StartDate        Group 
-        S001 Luong Dc Huy                               TMT         MALE 14/01/2001   23/12/2021         Cook
-        S002 Nguyen Ha Truong                           TMT         MALE 14/01/2001   23/12/2021         Runner
-        S003 Dang Ng Dang Khoa                          TMT         MALE 14/01/2001   23/12/2021         Runner
-        S004 Nguyen Dung Hoa                            TMT         MALE 14/01/2001   23/12/2021         Security
-        ----------------------------------------------------------------------------------------------------
-        */
-
         DishDetail dd1 = new DishDetail(d1, o1, 3);
         DishDetail dd2 = new DishDetail(d3, o1, 5);
         DishDetail dd3 = new DishDetail(d3, o3, 10);
         DishDetail dd4 = new DishDetail(d4, o3, 20);
 
+        
         /*
         --------------------------------
         TableID  OrderID    Price
@@ -101,10 +105,11 @@ public class App {
         B002    Or003     200000.0
         -------------------------------
         */
-
         TableDetail tbd1 = new TableDetail(tb1, o1);
         TableDetail tbd2 = new TableDetail(tb2, o2);
         TableDetail tbd3 = new TableDetail(tb2, o3);
+
+
 
         StaffManager staffs = new StaffManager();
         DishManager dishes = new DishManager();
